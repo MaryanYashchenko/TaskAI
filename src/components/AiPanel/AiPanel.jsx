@@ -10,10 +10,13 @@ export default function AiPanel({ open, onClose }) {
   const { ask }  = useAI();
 
   const [text, setText] = useState('');
-  const bottomRef = useRef(null);
+  const messagesRef = useRef(null);
 
+  // scroll only the messages container — scrollIntoView would also scroll
+  // ancestor containers and drag the off-canvas panel into view on mobile
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const el = messagesRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
   }, [messages, loading]);
 
   function handleSend() {
@@ -41,12 +44,11 @@ export default function AiPanel({ open, onClose }) {
         </button>
       </div>
 
-      <div className={s.messages}>
+      <div className={s.messages} ref={messagesRef}>
         {messages.map((msg, i) => (
           <Message key={i} msg={msg} />
         ))}
         {loading && <TypingIndicator />}
-        <div ref={bottomRef} />
       </div>
 
       <div className={s.chips}>

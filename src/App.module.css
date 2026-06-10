@@ -9,7 +9,9 @@
 .workspace {
   display: flex;
   flex: 1;
-  overflow: hidden;
+  /* clip (not hidden): hidden containers can still be scrolled
+     programmatically, which dragged the off-canvas drawers into view */
+  overflow: clip;
   position: relative;
 }
 
