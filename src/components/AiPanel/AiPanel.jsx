@@ -4,7 +4,7 @@ import { useAI } from '../../hooks/useAI';
 import { AI_CHIPS } from '../../lib/constants';
 import s from './AiPanel.module.css';
 
-export default function AiPanel() {
+export default function AiPanel({ open, onClose }) {
   const messages = useStore(st => st.messages);
   const loading  = useStore(st => st.aiLoading);
   const { ask }  = useAI();
@@ -31,11 +31,14 @@ export default function AiPanel() {
   }
 
   return (
-    <aside className={s.panel}>
+    <aside className={`${s.panel} ${open ? s.panelOpen : ''}`}>
       <div className={s.header}>
         <div className={s.dot} />
         <span className={s.headerTitle}>AI-асистент</span>
         <small className={s.headerSub}>Groq · Llama 3.3</small>
+        <button className={s.closeBtn} onClick={onClose} aria-label="Закрити AI-асистент">
+          <i className="ti ti-x" />
+        </button>
       </div>
 
       <div className={s.messages}>

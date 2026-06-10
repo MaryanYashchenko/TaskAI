@@ -5,6 +5,14 @@
   align-items: start;
 }
 
+@media (max-width: 1000px) {
+  .kanban { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .kanban { grid-template-columns: 1fr; }
+}
+
 .col {
   background: var(--bg-secondary);
   border-radius: var(--r);

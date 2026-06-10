@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useStore } from './store/useStore';
 import AppBar     from './components/AppBar/AppBar';
 import Sidebar    from './components/Sidebar/Sidebar';
@@ -24,12 +25,23 @@ export default function App() {
   const view           = useStore(s => s.view);
   const filterPriority = useStore(s => s.filterPriority);
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [aiOpen, setAiOpen]           = useState(false);
+
+  function closeDrawers() {
+    setSidebarOpen(false);
+    setAiOpen(false);
+  }
+
   return (
     <div className={s.app}>
-      <AppBar />
+      <AppBar
+        onToggleSidebar={() => setSidebarOpen(o => !o)}
+        onToggleAI={() => setAiOpen(o => !o)}
+      />
 
       <div className={s.workspace}>
-        <Sidebar />
+        <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
         <main className={s.main}>
           <div className={s.mainHeader}>
@@ -45,7 +57,11 @@ export default function App() {
           </div>
         </main>
 
-        <AiPanel />
+        <AiPanel open={aiOpen} onClose={() => setAiOpen(false)} />
+
+        {(sidebarOpen || aiOpen) && (
+          <div className={s.backdrop} onClick={closeDrawers} />
+        )}
       </div>
 
       <TaskModal />

@@ -51,3 +51,30 @@
 }
 .btnPrimary:hover { opacity: 0.85; }
 .btnPrimary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.iconBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r);
+  border: 0.5px solid var(--border-mid);
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.iconBtn:hover { background: var(--bg-secondary); }
+
+@media (max-width: 880px) {
+  .iconBtn { display: flex; }
+}
+
+@media (max-width: 480px) {
+  .bar { padding: 0 10px; gap: 6px; }
+  .btn, .btnPrimary { padding: 6px 10px; }
+  .btnLabel { display: none; }
+}

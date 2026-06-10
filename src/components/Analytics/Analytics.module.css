@@ -12,6 +12,15 @@
 
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .grid  { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .stats { grid-template-columns: 1fr; }
+}
+
 .card { background: var(--bg-secondary); border-radius: var(--r); padding: 12px 14px; }
 .cardTitle { font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 10px; }
 

@@ -14,7 +14,7 @@ const FILTERS = [
   { key: 'low',  label: 'Низькі',       icon: 'ti-point-filled', iconStyle: { color: '#639922', fontSize: 14 } },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ open, onClose }) {
   const view           = useStore(st => st.view);
   const filterPriority = useStore(st => st.filterPriority);
   const setView        = useStore(st => st.setView);
@@ -24,6 +24,16 @@ export default function Sidebar() {
 
   const total = tasks.length;
 
+  function selectView(key) {
+    setView(key);
+    onClose?.();
+  }
+
+  function selectFilter(key) {
+    setFilter(key);
+    onClose?.();
+  }
+
   const filterBadge = (key) => {
     if (key === 'all')  return <span className={s.badge}>{total}</span>;
     if (key === 'high') return <span className={s.badgeErr}>{countByP('high')}</span>;
@@ -32,12 +42,15 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className={s.sidebar}>
+    <aside className={`${s.sidebar} ${open ? s.sidebarOpen : ''}`}>
       <div className={s.header}>
         <div className={s.headerTitle}>
           <i className="ti ti-sparkles" /> TaskAI
         </div>
         <div className={s.headerSub}>AI-планувальник завдань</div>
+        <button className={s.closeBtn} onClick={onClose} aria-label="Закрити меню">
+          <i className="ti ti-x" />
+        </button>
       </div>
 
       <div className={s.section}>
@@ -46,7 +59,7 @@ export default function Sidebar() {
           <button
             key={v.key}
             className={view === v.key ? s.navItemActive : s.navItem}
-            onClick={() => setView(v.key)}
+            onClick={() => selectView(v.key)}
           >
             <i className={`ti ${v.icon}`} />
             {v.label}
@@ -63,7 +76,7 @@ export default function Sidebar() {
           <button
             key={f.key}
             className={filterPriority === f.key ? s.navItemActive : s.navItem}
-            onClick={() => setFilter(f.key)}
+            onClick={() => selectFilter(f.key)}
           >
             <i className={`ti ${f.icon}`} style={f.iconStyle} />
             {f.label}

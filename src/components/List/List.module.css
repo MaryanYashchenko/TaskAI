@@ -32,3 +32,9 @@
 .empty { text-align: center; padding: 60px 20px; color: var(--text-tertiary); }
 .empty i { font-size: 36px; display: block; margin-bottom: 10px; }
 .empty p { font-size: 13px; }
+
+@media (max-width: 480px) {
+  .card { gap: 8px; padding: 10px 12px; }
+  .rank { min-width: 18px; font-size: 15px; }
+  .score { font-size: 12px; }
+}
