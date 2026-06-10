@@ -1,0 +1,34 @@
+.wrap { display: flex; flex-direction: column; gap: 8px; }
+
+.card {
+  background: var(--bg-primary);
+  border: 0.5px solid var(--border-light);
+  border-radius: var(--r);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.15s;
+}
+.card:hover { border-color: var(--border-mid); }
+
+.rank { font-size: 18px; font-weight: 500; color: var(--text-tertiary); min-width: 26px; }
+
+.info { flex: 1; }
+
+.title { font-size: 13px; font-weight: 500; margin-bottom: 5px; }
+
+.tags { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+
+.tagHigh { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; background: var(--c-err-bg); color: var(--c-err-txt); }
+.tagMed  { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; background: var(--c-warn-bg); color: var(--c-warn-txt); }
+.tagLow  { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; background: var(--c-ok-bg); color: var(--c-ok-txt); }
+.tagCat  { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; background: var(--bg-secondary); color: var(--text-secondary); border: 0.5px solid var(--border-light); }
+
+.due { font-size: 11px; color: var(--text-tertiary); }
+
+.score { display: flex; align-items: center; gap: 4px; font-size: 13px; color: var(--c-info-txt); }
+
+.empty { text-align: center; padding: 60px 20px; color: var(--text-tertiary); }
+.empty i { font-size: 36px; display: block; margin-bottom: 10px; }
+.empty p { font-size: 13px; }

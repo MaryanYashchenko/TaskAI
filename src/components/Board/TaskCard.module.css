@@ -1,0 +1,76 @@
+.card {
+  background: var(--bg-primary);
+  border: 0.5px solid var(--border-light);
+  border-radius: var(--r);
+  padding: 10px;
+  cursor: grab;
+  transition: border-color 0.15s, transform 0.1s, opacity 0.15s;
+}
+.card:hover {
+  border-color: var(--border-mid);
+  transform: translateY(-1px);
+}
+.card:active { cursor: grabbing; }
+
+.title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+
+.desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.tags { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+
+.tag { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; }
+
+.tagHigh { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; background: var(--c-err-bg); color: var(--c-err-txt); }
+.tagMed  { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; background: var(--c-warn-bg); color: var(--c-warn-txt); }
+.tagLow  { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; background: var(--c-ok-bg); color: var(--c-ok-txt); }
+.tagCat  { font-size: 11px; padding: 2px 7px; border-radius: 8px; font-weight: 500; background: var(--bg-secondary); color: var(--text-secondary); border: 0.5px solid var(--border-light); }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 7px;
+  padding-top: 6px;
+  border-top: 0.5px solid var(--border-light);
+}
+
+.score { display: flex; align-items: center; gap: 3px; font-size: 11px; color: var(--c-info-txt); }
+.due   { font-size: 11px; color: var(--text-tertiary); }
+
+.progressBar { height: 3px; background: var(--border-light); border-radius: 2px; overflow: hidden; margin-top: 6px; }
+.progressFill { height: 100%; border-radius: 2px; transition: width 0.4s; }
+
+.statusNav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.statusBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 0.5px solid var(--border-light);
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+}
+.statusBtn:hover:not(:disabled) {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-mid);
+}
+.statusBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}

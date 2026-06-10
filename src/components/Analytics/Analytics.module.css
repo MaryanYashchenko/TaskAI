@@ -1,0 +1,31 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.statCard { background: var(--bg-secondary); border-radius: var(--r); padding: 12px 14px; }
+.statLabel { font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; }
+.statValue { font-size: 24px; font-weight: 500; }
+.statSub   { font-size: 11px; color: var(--text-tertiary); }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.card { background: var(--bg-secondary); border-radius: var(--r); padding: 12px 14px; }
+.cardTitle { font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 10px; }
+
+.barRow { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
+.barLabel { font-size: 12px; flex: 1; color: var(--text-secondary); }
+.barCount { font-size: 12px; font-weight: 500; min-width: 16px; text-align: right; }
+.barWrap  { width: 80px; }
+.barTrack { height: 3px; background: var(--border-light); border-radius: 2px; overflow: hidden; }
+.barFill  { height: 100%; border-radius: 2px; transition: width 0.4s; }
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-tertiary);
+}
+.empty i { font-size: 36px; display: block; margin-bottom: 10px; }
+.empty p  { font-size: 13px; }

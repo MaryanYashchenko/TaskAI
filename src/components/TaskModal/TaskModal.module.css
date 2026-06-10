@@ -1,0 +1,80 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: var(--bg-primary);
+  border-radius: var(--rl);
+  border: 0.5px solid var(--border-mid);
+  padding: 22px;
+  width: 400px;
+  max-width: 95vw;
+  animation: slideUp 0.15s ease;
+}
+@keyframes slideUp { from { transform: translateY(8px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.title { font-size: 15px; font-weight: 500; margin-bottom: 16px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.field { margin-bottom: 12px; }
+.field label { font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 5px; }
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  border: 0.5px solid var(--border-mid);
+  border-radius: var(--r);
+  padding: 7px 10px;
+  font-size: 13px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font);
+  transition: border-color 0.15s;
+}
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--c-accent);
+}
+.textarea { resize: vertical; min-height: 60px; }
+
+.actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--r);
+  border: 0.5px solid var(--border-mid);
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-primary);
+  transition: background 0.15s;
+}
+.btn:hover { background: var(--bg-secondary); }
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--r);
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: 0.5px solid var(--text-primary);
+  cursor: pointer;
+  font-size: 13px;
+  transition: opacity 0.15s;
+}
+.btnPrimary:hover { opacity: 0.85; }
